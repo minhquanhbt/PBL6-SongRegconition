@@ -1,0 +1,34 @@
+<header>
+  <div class="d-flex justify-content-between">
+    <a href="#" class="d-none d-sm-block logo-container">
+      <img class="logo" src="../../../../assets/Picture1.png" alt="App logo" height="36" *ngIf="!isScrolling"/>
+      <img class="logo" src="../../../../assets/Picture2.png" alt="App logo" height="36" *ngIf="isScrolling"/>
+    </a>
+    <div class="d-flex">
+      <span class="show-mobile-menu">
+        <fa-icon [icon]="faBars" (click)="showMobileMenu = true"></fa-icon>
+      </span>
+      <div class="nav" id="header-menu" [class.show]="showMobileMenu">
+        <div class="close-menu">
+          <span (click)="showMobileMenu = false">
+            <fa-icon [icon]="faTimes"></fa-icon>
+          </span>
+        </div>
+
+        <div class="nav-item" *ngFor="let item of layoutService.state.menuItems">
+
+          <div ngbDropdown *ngIf="item.children" class="dropdown">
+            <button class="dropdown-toggle btn btn-link" ngbDropdownToggle>{{item.title}}</button>
+            <div ngbDropdownMenu>
+              <a ngbDropdownItem class="nav-link dropdown-item" *ngFor="let child of item.children"
+                [routerLink]="[child.path]" routerLinkActive="active">{{child.title}}</a>
+            </div>
+          </div>
+
+          <a *ngIf="!item.children" class="nav-link" [routerLink]="[item.path]" routerLinkActive="active"
+            (click)="showMobileMenu = false">{{item.title}}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>

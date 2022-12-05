@@ -1,0 +1,145 @@
+footer {
+  height: 70px;
+  background-color: white;
+  transition: background-color 1s ease;
+  color: black;
+  -webkit-box-shadow: var(--navbar-scroll-shadow);
+  box-shadow: var(--navbar-scroll-shadow);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+}
+
+.track-container{
+  padding: 7px 40px 7px 24px;
+}
+
+.track-title {
+  font-size: 15px;
+  font-weight: 700;
+  overflow: hidden;
+  line-height: 1.14;
+  letter-spacing: .5px;
+  margin-bottom: 5px;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.track-artist span{
+  font-size: 14px;
+  line-height: 1.14;
+  letter-spacing: .5px;
+}
+
+.album-artwork {
+  height: 50px;
+  min-width: 50px;
+  width: 50px;
+  border-radius: 5%;
+  margin-right: 10px;
+  background-size: cover;
+}
+
+.playback-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.playback-buttons {
+  display: flex;
+  justify-content: center;
+  .pause, .play, .next{
+    margin-left: 15px;
+  }
+  .next, .back{
+    background: none;
+  }
+  .pause, .play, .next, .back{
+    width: 40px;
+    height: 40px;
+    border: none;
+  }
+  .play, .pause{
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .play{
+    padding: 0px 0px 0px 2px;
+  }
+}
+
+.misc-controls {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.volume{
+  margin-left: 20px;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+}
+
+.scrubber {
+  display: flex;
+  align-items: center;
+  margin: 0px 70px;
+}
+
+.slider {
+  flex: 1;
+  margin: 0 5px;
+}
+
+.time {
+  font-size: 12px;
+  color: #646464;
+  font-weight: 600;
+  line-height: 2;
+  letter-spacing: .5px;
+}
+
+:host{
+  ::ng-deep .mat-slider-track-fill, ::ng-deep .mat-slider-wrapper, ::ng-deep .mat-slider-track-wrapper,
+  ::ng-deep .mat-slider-track-background{
+    height: 5px !important;
+    border-radius: 5px;
+  }
+
+  ::ng-deep .mat-slider-track-background{
+    background-color: #f0f0f0;
+  }
+
+  ::ng-deep .mat-slider:hover .mat-slider-track-background, ::ng-deep .mat-slider.cdk-focused .mat-slider-track-background{
+    background-color: #f0f0f0;
+  }
+
+  ::ng-deep .mat-slider-thumb{
+    background-color: #E91E63 !important;
+    border: none;
+    transform: none;
+    transition: none;
+    width: 10px;
+    height: 10px;
+    bottom: -5px;
+  }
+}
+
+:host{
+  ::ng-deep .mat-slider.mat-slider-horizontal .mat-slider-track-background,
+  .mat-slider.mat-slider-horizontal .mat-slider-track-fill {
+    height: 100%;
+  }
+}

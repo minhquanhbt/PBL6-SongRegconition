@@ -1,0 +1,64 @@
+.ripple-container {
+  width: 350px;
+  text-align: center;
+}
+
+.ripple-box {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  margin: auto;
+  margin-bottom: 70px;
+}
+
+.ripple-avatar,
+.ripple-avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+.ripple-text {
+  font-size: 20px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 700;
+  color: white;
+}
+
+/* ripple animation */
+@keyframes rippleAnimation {
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* applying the animation */
+.active .ripple-box::before,
+.active .ripple-avatar::before,
+.active .ripple-avatar::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #1770ec;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.active .ripple-box::before {
+  z-index: 0;
+  animation: 2s ease-out rippleAnimation infinite;
+}
+
+.active .ripple-avatar::before {
+  animation: 2s 1s ease-out rippleAnimation infinite;
+}
+
+.active .ripple-avatar::after {
+  animation: 2s 0.5s ease-out rippleAnimation infinite;
+}

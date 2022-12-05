@@ -1,0 +1,24 @@
+<m-page-container>
+  <div class="d-flex justify-content-center align-items-center">
+    <section class="ripple-container" *ngIf="!listening">
+      <div class="ripple-box">
+        <button class="ripple-avatar p-0" style="border: none;" (click)="isListening()">
+          <img
+            src="../../../assets/Shazam_icon.svg"
+            alt="">
+        </button>
+      </div>
+      <div class="ripple-text">Tap to Search</div>
+    </section>
+    <section class="active ripple-container" *ngIf="listening">
+      <div class="ripple-box">
+        <button class="ripple-avatar p-0" style="border: none;">
+          <img
+            src="../../../assets/Shazam_icon.svg"
+            alt="">
+        </button>
+      </div>
+      <div class="ripple-text">Listening</div>
+    </section>
+  </div>
+</m-page-container>

@@ -1,0 +1,62 @@
+<footer>
+  <div class="d-flex flex-row track-container">
+    <div class="d-flex justify-content-between">
+      <img class="album-artwork" src="https://upload.wikimedia.org/wikipedia/vi/c/cd/Taylor_Swift_-_Lover.png">
+      <div class="track-text">
+        <a class="track-title link-dark">Lover</a>
+        <div class="track-artist text-muted">
+          <span>
+            Taylor Swift
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="scrubber flex-grow-1">
+      <span class="time">00:00</span>
+      <mat-slider #slider
+        [disabled]="false"
+        class="slider"
+        min="0"
+        max="90"
+        step="1"
+        value="0"
+      >
+      </mat-slider>
+      <span class="time">01:30</span>
+    </div>
+    <div class="playback-controls d-flex flex-row">
+      <div class="playback-buttons">
+        <button class="back">
+          <fa-icon [icon]="faBackwardStep" size="lg"></fa-icon>
+        </button>
+
+        <button class="play" *ngIf="!isPlaying">
+          <fa-icon [icon]="faPlay" size="lg" ></fa-icon>
+        </button>
+  
+        <button class="pause" *ngIf="isPlaying">
+          <fa-icon [icon]="faPause" size="lg"></fa-icon>
+        </button>
+  
+        <button class="next">
+          <fa-icon [icon]="faForwardStep" size="lg"></fa-icon>
+        </button>
+      </div>
+    </div>
+    <div class="misc-controls">
+      <button class="volume" (click)="isClicked =true">
+        <fa-icon [icon]="faVolume" size="lg"></fa-icon>
+      </button>
+      <mat-slider
+        *ngIf="isClicked"
+        #volume
+        class="volume-slider"
+        min="0"
+        max="10"
+        step=".1"
+        value="10"
+      >
+      </mat-slider>
+    </div>
+  </div>
+</footer>
