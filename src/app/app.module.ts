@@ -10,12 +10,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { LoadingBarHttpClientModule } from '@ngx-loading-bar/http-client';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { SongDiscoverComponent } from './features/song-discover/song-discover.component';
 
 registerLocaleData(localVi);
 
 @NgModule({
-  declarations: [AppComponent, SongDiscoverComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     HttpClientModule,

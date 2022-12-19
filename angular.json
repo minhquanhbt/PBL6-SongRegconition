@@ -70,7 +70,8 @@
               "browserTarget": "PBL7-SongRegconition:build:production"
             },
             "development": {
-              "browserTarget": "PBL7-SongRegconition:build:development"
+              "browserTarget": "PBL7-SongRegconition:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

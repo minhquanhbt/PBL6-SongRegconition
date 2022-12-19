@@ -1,0 +1,148 @@
+.song {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(186px, 1fr));
+    @media screen and (max-width: 599.99px) and (orientation: portrait), (max-width: 959.99px) and (orientation: landscape) {
+        grid-template-columns: repeat( auto-fill, minmax(156px, 1fr) );
+    }
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 15px;
+    padding-bottom: 20px;
+    animation: fadein 0.7s;
+
+    @keyframes fadein {
+        from { opacity: 0; }
+        to   { opacity: 1; }
+    }
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: column;
+    width: 170px;
+    @media screen and (max-width: 599.99px) and (orientation: portrait), (max-width: 959.99px) and (orientation: landscape) {
+        width: 150px;
+    }
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-bottom: 20px;
+}
+
+.album-cover-container {
+    background: rgb(33, 33, 33);
+    outline: none;
+    height: 170px;
+    width: 170px;
+    @media screen and (max-width: 599.99px) and (orientation: portrait), (max-width: 959.99px) and (orientation: landscape) {
+        width: 150px;
+        height: 150px;
+    }
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-size: cover;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.album-cover {
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s;
+
+    &:hover {
+        opacity: 0.7;
+    }
+}
+
+.artist-name {
+    color: #b3b3b3;
+}
+
+.album-name {
+    font-weight: 500;
+    cursor: pointer;
+    outline: none;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: white;
+}
+
+.album-text {
+    flex: 1;
+    cursor: default;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.album-name-container {
+    display: flex;
+    align-items: center;
+}
+
+.explicit {
+    font-size: 14px;
+    height: 14px;
+    width: 14px;
+    padding-left: 2px;
+    color: #b3b3b3;
+}
+
+.text-outer-container {
+    display: flex;
+}
+
+.section-title {
+    cursor: default;
+    line-height: normal;
+    font-size: 24px;
+    font-weight: 500;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    color: white;
+}
+
+.rank {
+    font-size: 20px;
+    font-weight: 600;
+    padding-right: 10px;
+    cursor: default;
+    padding-top: 2px;
+    color: white;
+}
+
+.has-search{
+    padding-top: var(--height);;
+}
+
+.has-search .form-control {
+  padding-left: 2.375rem;
+  background-color: rgb(43, 65, 121);
+  border: none;
+  color: white;
+  &::placeholder{
+    color: rgba(255, 255, 255, 0.742);
+  }
+  &:focus{
+    box-shadow: none;
+    border: .5px solid rgba(255, 255, 255, 0.797);
+  }
+}
+
+.has-search .form-control-feedback {
+  position: absolute;
+  z-index: 2;
+  display: block;
+  width: 2.375rem;
+  height: 2.375rem;
+  line-height: 2.375rem;
+  text-align: center;
+  pointer-events: none;
+  color: white;
+  font-weight: 700;
+}

@@ -14,6 +14,16 @@ const routes: Routes = [
         loadChildren: () =>
           import('./features/song-regconition/song-regconition.module').then((m) => m.SongRegconitionModule),
       },
+      {
+        path: 'song-discover',
+        loadChildren: () =>
+          import('./features/song-discover/song-discover.module').then((m) => m.SongDiscoverModule),
+      },
+      {
+        path: 'song-result',
+        loadChildren: () =>
+          import('./features/song-result/song-result.module').then((m) => m.SongResultModule),
+      },
     ],
   },
 ];

@@ -11,7 +11,7 @@ import { LayoutService } from '../layout.service';
 export class HeaderComponent implements OnInit {
     faBars = faBars;
     faTimes = faTimes;
-    faShuffle  = faShuffle ;
+    faShuffle  = faShuffle;
 
     isScrolling = false;
 
@@ -53,7 +53,11 @@ export class HeaderComponent implements OnInit {
             document.body.style.setProperty('--navbar-scroll-shadow', "none");
          }
     }
-     
+    
+    onClick(){
+        this.showMobileMenu = true;
+        document.body.style.setProperty('--navbar-scroll-text', "black");
+    }
 
 
 }

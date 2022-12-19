@@ -1,12 +1,14 @@
 <header>
   <div class="d-flex justify-content-between">
-    <a href="#" class="d-none d-sm-block logo-container">
-      <img class="logo" src="../../../../assets/Picture1.png" alt="App logo" height="36" *ngIf="!isScrolling"/>
-      <img class="logo" src="../../../../assets/Picture2.png" alt="App logo" height="36" *ngIf="isScrolling"/>
-    </a>
+    <div class="d-flex flex-row">
+      <a href="#" class="d-none d-sm-flex logo-container">
+        <img class="logo" src="../../../../assets/Picture3.png" alt="App logo" height="36" *ngIf="!isScrolling"/>
+        <img class="logo" src="../../../../assets/Picture4.png" alt="App logo" height="36" *ngIf="isScrolling"/>
+      </a>
+    </div>
     <div class="d-flex">
       <span class="show-mobile-menu">
-        <fa-icon [icon]="faBars" (click)="showMobileMenu = true"></fa-icon>
+        <fa-icon [icon]="faBars" (click)="onClick()"></fa-icon>
       </span>
       <div class="nav" id="header-menu" [class.show]="showMobileMenu">
         <div class="close-menu">

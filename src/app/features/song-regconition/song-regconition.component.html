@@ -4,17 +4,27 @@
       <div class="ripple-box">
         <button class="ripple-avatar p-0" style="border: none;" (click)="isListening()">
           <img
-            src="../../../assets/Shazam_icon.svg"
+            src="../../../assets/pngegg.png"
             alt="">
         </button>
       </div>
-      <div class="ripple-text">Tap to Search</div>
+      <div class="ripple-text">
+        Tap to Search or
+        <button class="btn-sm-block btn me-sm-2 me-0" (click)="fileUpload.click()" [disabled]="isImporting" style="background-color: #FF4081;">
+          <span class="text-white" style="font-weight: 500;">
+              <fa-icon style="margin-right: 5px;" [icon]="faArrowUp" *ngIf="!isImporting"></fa-icon>
+              <fa-icon style="margin-right: 5px;" [icon]="faSpinner" [spin]="true" *ngIf="isImporting"></fa-icon>
+              Upload File
+          </span>
+          <input type="file" #fileUpload style="display: none;" (change)="onFileImportSelected($event)">
+        </button>
+      </div>
     </section>
     <section class="active ripple-container" *ngIf="listening">
       <div class="ripple-box">
         <button class="ripple-avatar p-0" style="border: none;">
           <img
-            src="../../../assets/Shazam_icon.svg"
+            src="../../../assets/pngegg.png"
             alt="">
         </button>
       </div>

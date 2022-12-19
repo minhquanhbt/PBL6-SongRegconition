@@ -1,1 +1,60 @@
-<p>song-discover works!</p>
+<m-page-container>
+  <div class="w-100">
+    <div class="form-group has-search mx-3 mb-3">
+      <fa-icon
+        [icon]="faSearch"
+        class="form-control-feedback"
+      ></fa-icon>
+      <input
+        class="form-control"
+        name="Search"
+        type="text"
+        placeholder="Search"
+        autocomplete="off"
+        (keyup)="updateFilter($event)"
+      />
+    </div>
+    <div class="section-title" *ngIf="isSearch">Result</div>
+    <div class="song" *ngIf="isSearch">
+      <div class="d-flex justify-content-center" *ngFor="let item of resultSong | slice:0:10">
+        <div class="inner-container">
+          <div class="album-cover-container mat-elevation-z24">
+            <img class="album-cover" appLazyLoad [src]="item.image" alt="album-art">
+          </div>
+          <div class="text-outer-container">
+            <span class="rank">{{item.id}}</span>
+            <div class="album-text">
+                <div class="album-name-container">
+                  <span class="album-name">
+                    {{item.name}}
+                  </span>
+                </div>
+                <span class="artist-name">{{item.singerName}}</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="section-title">Top Songs</div>
+    <div class="song">  
+      <div class="d-flex justify-content-center" *ngFor="let item of songList | slice:0:10">
+        <div class="inner-container">
+          <div class="album-cover-container mat-elevation-z24">
+            <img class="album-cover" appLazyLoad [src]="item.image" alt="album-art">
+          </div>
+          <div class="text-outer-container">
+            <span class="rank">{{item.id}}</span>
+            <div class="album-text">
+                <div class="album-name-container">
+                  <span class="album-name">
+                    {{item.name}}
+                  </span>
+                </div>
+                <span class="artist-name">{{item.singerName}}</span>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</m-page-container>
