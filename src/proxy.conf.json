@@ -1,7 +1,8 @@
 {
   "/api": {
-    "target": "http://127.0.0.1:8000",
-    "secure": false,
-    "changeOrigin": true
+    "target": "https://b437-118-69-61-190.ap.ngrok.io",
+    "secure": true,
+    "changeOrigin": true,
+    "logLevel": "debug"
   }
 }

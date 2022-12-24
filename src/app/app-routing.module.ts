@@ -20,7 +20,7 @@ const routes: Routes = [
           import('./features/song-discover/song-discover.module').then((m) => m.SongDiscoverModule),
       },
       {
-        path: 'song-result',
+        path: 'song-result/:id',
         loadChildren: () =>
           import('./features/song-result/song-result.module').then((m) => m.SongResultModule),
       },

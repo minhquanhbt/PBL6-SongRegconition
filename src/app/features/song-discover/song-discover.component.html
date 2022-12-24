@@ -1,5 +1,5 @@
 <m-page-container>
-  <div class="w-100">
+  <div class="w-100 pb-5">
     <div class="form-group has-search mx-3 mb-3">
       <fa-icon
         [icon]="faSearch"
@@ -18,14 +18,13 @@
     <div class="song" *ngIf="isSearch">
       <div class="d-flex justify-content-center" *ngFor="let item of resultSong | slice:0:10">
         <div class="inner-container">
-          <div class="album-cover-container mat-elevation-z24">
+          <div class="album-cover-container mat-elevation-z24" (click)="playSong(item)">
             <img class="album-cover" appLazyLoad [src]="item.image" alt="album-art">
           </div>
           <div class="text-outer-container">
-            <span class="rank">{{item.id}}</span>
             <div class="album-text">
                 <div class="album-name-container">
-                  <span class="album-name">
+                  <span class="album-name" (click)="playSong(item)">
                     {{item.name}}
                   </span>
                 </div>
@@ -39,14 +38,14 @@
     <div class="song">  
       <div class="d-flex justify-content-center" *ngFor="let item of songList | slice:0:10">
         <div class="inner-container">
-          <div class="album-cover-container mat-elevation-z24">
+          <div class="album-cover-container mat-elevation-z24" (click)="playSong(item)">
             <img class="album-cover" appLazyLoad [src]="item.image" alt="album-art">
           </div>
           <div class="text-outer-container">
-            <span class="rank">{{item.id}}</span>
+            <span class="rank">{{item.stt}}</span>
             <div class="album-text">
                 <div class="album-name-container">
-                  <span class="album-name">
+                  <span class="album-name" (click)="playSong(item)">
                     {{item.name}}
                   </span>
                 </div>

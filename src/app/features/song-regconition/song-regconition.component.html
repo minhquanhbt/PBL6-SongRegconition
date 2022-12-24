@@ -1,6 +1,6 @@
 <m-page-container>
   <div class="d-flex justify-content-center align-items-center">
-    <section class="ripple-container" *ngIf="!listening">
+    <section class="ripple-container" *ngIf="!isRecording">
       <div class="ripple-box">
         <button class="ripple-avatar p-0" style="border: none;" (click)="isListening()">
           <img
@@ -16,11 +16,11 @@
               <fa-icon style="margin-right: 5px;" [icon]="faSpinner" [spin]="true" *ngIf="isImporting"></fa-icon>
               Upload File
           </span>
-          <input type="file" #fileUpload style="display: none;" (change)="onFileImportSelected($event)">
+          <input type="file" #fileUpload style="display: none;" (change)="onFileImportSelected($event)" accept="audio/*">
         </button>
       </div>
     </section>
-    <section class="active ripple-container" *ngIf="listening">
+    <section class="active ripple-container" *ngIf="isRecording">
       <div class="ripple-box">
         <button class="ripple-avatar p-0" style="border: none;">
           <img

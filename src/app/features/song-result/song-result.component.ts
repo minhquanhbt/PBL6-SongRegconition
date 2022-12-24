@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Params } from '@angular/router';
 import * as RecordRTC from "recordrtc";
 
 @Component({
@@ -8,9 +9,13 @@ import * as RecordRTC from "recordrtc";
 })
 export class SongResultComponent implements OnInit {
 
-  constructor() { }
+  id: any;
+
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((params: Params) => this.id = params['id']);
+    console.log(this.id)
   }
 
 }

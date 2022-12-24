@@ -39,8 +39,6 @@ export class HeaderComponent implements OnInit {
         }else{
           scrollHeigth = 110;
         }
-        console.log(scrollY);
-        console.log(scrollHeigth);
          if(window.scrollY >= scrollHeigth){
             this.isScrolling = true;
             document.body.style.setProperty('--navbar-scroll', "white");

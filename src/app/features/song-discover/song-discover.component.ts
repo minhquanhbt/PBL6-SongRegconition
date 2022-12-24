@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SongService } from '../song.service';
 import { faSearch } from '@fortawesome/pro-regular-svg-icons';
 import { baseURL } from 'src/app/shared/baseurl';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-song-discover',
@@ -18,10 +19,15 @@ export class SongDiscoverComponent implements OnInit {
 
   isSearch = false;
 
-  constructor(private songService: SongService) { }
+  constructor(private songService: SongService,
+    private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
     this.loadSongsList();
+  }
+
+  playSong(song: any){
+    this.songService.song$.next(song);
   }
 
   loadSongsList = () => {
@@ -32,8 +38,13 @@ export class SongDiscoverComponent implements OnInit {
   };
 
   editSongList() {
+    var i = 1;
     this.songList.forEach((item) => {
-      item.image = baseURL + item.image;
+      if(i<11){
+        item.stt = i;
+        i++;
+      }
+      item.image = this.domSanitizer.bypassSecurityTrustUrl(baseURL + item.image);
       item.singerName = item.singer?.nickname;
       item.singerFullName = item.singer?.fullname;
     })
@@ -50,11 +61,9 @@ export class SongDiscoverComponent implements OnInit {
     if(val == "") {
       this.resultSong = [];
       this.isSearch = false;
-      document.body.style.setProperty('--height', "0px");
     }
     // update the rows
     else {
-      document.body.style.setProperty('--height', "70px");
       this.resultSong = temp;
     }
   }

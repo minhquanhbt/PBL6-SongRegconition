@@ -8,9 +8,11 @@ interface RecordedAudioOutput {
   title: string;
 }
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class AudioRecordingService {
-  private stream!: MediaStream | null;
+  private stream!: any;
   private recorder!: RecordRTC.StereoAudioRecorder | null;
   private interval: string | number | NodeJS.Timer | undefined;
   private startTime: moment.MomentInput;
@@ -44,7 +46,7 @@ export class AudioRecordingService {
         this.record();
       })
       .catch(error => {
-        this._recordingFailed.next();
+        this._recordingFailed.next(error);
       });
   }
 
@@ -80,21 +82,23 @@ export class AudioRecordingService {
 
   stopRecording() {
     if (this.recorder) {
-      this.recorder.stop(
-          (        blob: any) => {
-          if (this.startTime) {
-            const mp3Name = encodeURIComponent(
-              "audio_" + new Date().getTime() + ".mp3"
-            );
-            this.stopMedia();
-            this._recorded.next({ blob: blob, title: mp3Name });
+      try{
+        this.recorder.stop(
+          (blob: any) => {
+            if (this.startTime) {
+              const mp3Name = encodeURIComponent(
+                "audio_" + new Date().getTime() + ".mp3"
+              );
+              this.stopMedia();
+              this._recorded.next({ blob: blob, title: mp3Name });
+            }
           }
-        },
-        () => {
-          this.stopMedia();
-          this._recordingFailed.next();
-        }
-      );
+        )
+      }
+      catch (error) {
+        this.stopMedia();
+        this._recordingFailed.next("");
+      }
     }
   }
 

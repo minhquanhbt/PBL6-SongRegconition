@@ -1,12 +1,14 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { ISong} from '../shared/api-interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SongService {
+
+  song$ = new Subject();
 
   constructor(
       private http: HttpClient
@@ -32,9 +34,13 @@ export class SongService {
       return this.http.delete('/api/nhan-vien/' + SongId);
   }
 
-  importByExcel(file: File) {
+  identifySong(file: File) {
     const formData = new FormData();
     formData.append('file', file);
-    return this.http.post('/api/nhan-vien/import-by-excel', formData);
+    return this.http.post('/api/music_recognize/', formData);
+  }
+
+  setQueue(songId: any){
+
   }
 }
