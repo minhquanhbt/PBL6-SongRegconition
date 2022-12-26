@@ -8,10 +8,8 @@ import { ISong} from '../shared/api-interfaces';
 })
 export class SongService {
 
-  song$ = new Subject();
-
   constructor(
-      private http: HttpClient
+    private http: HttpClient
   ) {}
 
   get(id: number) {
@@ -38,9 +36,5 @@ export class SongService {
     const formData = new FormData();
     formData.append('file', file);
     return this.http.post('/api/music_recognize/', formData);
-  }
-
-  setQueue(songId: any){
-
   }
 }

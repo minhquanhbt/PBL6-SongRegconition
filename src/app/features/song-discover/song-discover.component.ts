@@ -3,6 +3,7 @@ import { SongService } from '../song.service';
 import { faSearch } from '@fortawesome/pro-regular-svg-icons';
 import { baseURL } from 'src/app/shared/baseurl';
 import { DomSanitizer } from '@angular/platform-browser';
+import { PlayerService } from '../player.service';
 
 @Component({
   selector: 'app-song-discover',
@@ -20,6 +21,7 @@ export class SongDiscoverComponent implements OnInit {
   isSearch = false;
 
   constructor(private songService: SongService,
+    private playerService: PlayerService,
     private domSanitizer: DomSanitizer) { }
 
   ngOnInit(): void {
@@ -27,29 +29,16 @@ export class SongDiscoverComponent implements OnInit {
   }
 
   playSong(song: any){
-    this.songService.song$.next(song);
+    this.playerService.song$.next(song);
   }
 
   loadSongsList = () => {
-    this.songService.list().subscribe((data: any) => {
-        this.songList = data;
-        this.editSongList();
+    this.playerService.getListOfSongs();
+    this.playerService.getSongList().subscribe((items) => {
+      this.songList = items;
+      this.temp = [...this.songList];
     });
   };
-
-  editSongList() {
-    var i = 1;
-    this.songList.forEach((item) => {
-      if(i<11){
-        item.stt = i;
-        i++;
-      }
-      item.image = this.domSanitizer.bypassSecurityTrustUrl(baseURL + item.image);
-      item.singerName = item.singer?.nickname;
-      item.singerFullName = item.singer?.fullname;
-    })
-    this.temp = [...this.songList];
-  }
 
   updateFilter(event: any) {
     this.isSearch = true;

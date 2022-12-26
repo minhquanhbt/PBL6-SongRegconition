@@ -16,13 +16,25 @@ footer {
   padding: 7px 40px 7px 24px;
 }
 
+.track-text {
+  width: 10vw;
+  cursor: default;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  line-height: normal;
+}
+
+
 .track-title {
+  width: 100%;
   font-size: 15px;
   font-weight: 700;
-  overflow: hidden;
   line-height: 1.14;
   letter-spacing: .5px;
   margin-bottom: 5px;
+  overflow: hidden;
+  white-space: nowrap;
   text-overflow: ellipsis;
   cursor: pointer;
   text-decoration: none;
@@ -95,7 +107,7 @@ footer {
 .scrubber {
   display: flex;
   align-items: center;
-  margin: 0px 70px;
+  margin: 0px 50px;
 }
 
 .slider {
@@ -119,10 +131,6 @@ footer {
   }
 
   ::ng-deep .mat-slider-track-background{
-    background-color: #f0f0f0;
-  }
-
-  ::ng-deep .mat-slider:hover .mat-slider-track-background, ::ng-deep .mat-slider.cdk-focused .mat-slider-track-background{
     background-color: #f0f0f0;
   }
 

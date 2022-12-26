@@ -17,6 +17,7 @@ export class AudioRecordingService {
   private interval: string | number | NodeJS.Timer | undefined;
   private startTime: moment.MomentInput;
   private _recorded = new Subject<RecordedAudioOutput>();
+  private _recording = new Subject<string>();
   private _recordingTime = new Subject<string>();
   private _recordingFailed = new Subject<string>();
 
@@ -32,6 +33,10 @@ export class AudioRecordingService {
     return this._recordingFailed.asObservable();
   }
 
+  recording(): Observable<string> {
+    return this._recording.asObservable();
+  }
+
   startRecording() {
     if (this.recorder) {
       // It means recording is already started or it is already recording something
@@ -39,6 +44,7 @@ export class AudioRecordingService {
     }
 
     this._recordingTime.next("00:00");
+    this._recording.next("true");
     navigator.mediaDevices
       .getUserMedia({ audio: true })
       .then(s => {

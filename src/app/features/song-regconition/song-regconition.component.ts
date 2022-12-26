@@ -54,12 +54,9 @@ export class SongRegconitionComponent implements OnInit {
   }
 
   identifySong(file: any){
-    console.log(file)
     this.songService.identifySong(file).subscribe((res: any) => {
       this.isImporting = false;
       if (res){
-        console.log(res)
-        this.songService.song$.next(res.music);
         this.router.navigate(['/app/song-result', res.music.pk])
       }
     }, (error) => {
