@@ -28,7 +28,7 @@
           </div>
 
           <a *ngIf="!item.children" class="nav-link" [routerLink]="[item.path]" routerLinkActive="active"
-            (click)="showMobileMenu = false">{{item.title}}</a>
+            (click)="onClickClose()">{{item.title}}</a>
         </div>
       </div>
     </div>

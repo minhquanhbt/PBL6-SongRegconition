@@ -13,10 +13,10 @@
       </div>
     </div>
     <div class="scrubber flex-grow-1">
-      <span class="time">{{ currentTime$ | async }}</span>
+      <span class="time d-none d-md-flex">{{ currentTime$ | async }}</span>
       <mat-slider #slider
         [disabled]="!activeSong"
-        class="slider"
+        class="slider d-none d-md-flex"
         min="0"
         [max]="maxDuration"
         step="1"
@@ -24,11 +24,11 @@
         (change)="seekToTime($event.value)"
       >
       </mat-slider>
-      <span class="time">{{durationTime}}</span>
+      <span class="time d-none d-md-flex">{{durationTime}}</span>
     </div>
     <div class="playback-controls d-flex flex-row">
       <div class="playback-buttons">
-        <button class="back">
+        <button class="back d-none d-md-block">
           <fa-icon [icon]="faBackwardStep" size="lg" (click)="playPreviousSong()"></fa-icon>
         </button>
 
@@ -45,7 +45,7 @@
         </button>
       </div>
     </div>
-    <div class="misc-controls">
+    <div class="misc-controls d-none d-md-flex">
       <button class="volume" (click)="isClicked = !isClicked">
         <fa-icon [icon]="faVolume" size="lg"></fa-icon>
       </button>

@@ -45,9 +45,14 @@ export class HeaderComponent implements OnInit {
             document.body.style.setProperty('--navbar-scroll-text', "black");
             document.body.style.setProperty('--navbar-scroll-shadow', "0px 6px 12px -5px #000000");
          }else if(window.scrollY < scrollHeigth){
+            if(this.showMobileMenu){
+                document.body.style.setProperty('--navbar-scroll-text', "black")
+            }
+            else {
+                document.body.style.setProperty('--navbar-scroll-text', "white");
+            }
             this.isScrolling = false;
             document.body.style.setProperty('--navbar-scroll', "transparent");
-            document.body.style.setProperty('--navbar-scroll-text', "white");
             document.body.style.setProperty('--navbar-scroll-shadow', "none");
          }
     }
