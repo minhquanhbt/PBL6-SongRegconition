@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "PBL7-SongRegconition": {
+    "PBL6-SongRegconition": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -67,10 +67,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "PBL7-SongRegconition:build:production"
+              "browserTarget": "PBL6-SongRegconition:build:production"
             },
             "development": {
-              "browserTarget": "PBL7-SongRegconition:build:development"
+              "browserTarget": "PBL6-SongRegconition:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -78,7 +78,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "PBL7-SongRegconition:build"
+            "browserTarget": "PBL6-SongRegconition:build"
           }
         },
         "test": {
