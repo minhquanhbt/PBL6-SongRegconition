@@ -12,12 +12,13 @@ interface RecordedAudioOutput {
   providedIn: 'root'
 })
 export class AudioRecordingService {
+  _recording = new Subject<string>();
+
   private stream!: any;
   private recorder!: RecordRTC.StereoAudioRecorder | null;
   private interval: string | number | NodeJS.Timer | undefined;
   private startTime: moment.MomentInput;
   private _recorded = new Subject<RecordedAudioOutput>();
-  private _recording = new Subject<string>();
   private _recordingTime = new Subject<string>();
   private _recordingFailed = new Subject<string>();
 

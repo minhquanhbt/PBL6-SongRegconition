@@ -54,6 +54,7 @@ export class SongRegconitionComponent implements OnInit {
   }
 
   identifySong(file: any){
+    this.audioRecordingService._recording.next("true")
     this.songService.identifySong(file).subscribe((res: any) => {
       this.isImporting = false;
       if (res){

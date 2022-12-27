@@ -52,10 +52,13 @@ export class HeaderComponent implements OnInit {
          }
     }
     
-    onClick(){
+    onClickOpen(){
         this.showMobileMenu = true;
         document.body.style.setProperty('--navbar-scroll-text', "black");
     }
 
-
+    onClickClose(){
+        this.showMobileMenu = false;
+        document.body.style.setProperty('--navbar-scroll-text', "white");
+    }
 }

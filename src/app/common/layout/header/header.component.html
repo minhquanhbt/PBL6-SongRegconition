@@ -8,11 +8,11 @@
     </div>
     <div class="d-flex">
       <span class="show-mobile-menu">
-        <fa-icon [icon]="faBars" (click)="onClick()"></fa-icon>
+        <fa-icon [icon]="faBars" [styles]="{'color': 'var(--navbar-scroll-text)'}" (click)="onClickOpen()"></fa-icon>
       </span>
       <div class="nav" id="header-menu" [class.show]="showMobileMenu">
         <div class="close-menu">
-          <span (click)="showMobileMenu = false">
+          <span (click)="onClickClose()">
             <fa-icon [icon]="faTimes"></fa-icon>
           </span>
         </div>
