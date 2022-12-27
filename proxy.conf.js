@@ -1,6 +1,6 @@
 const PROXY_CONFIG = {
     "/api": {
-        "target": "https://ab89-203-205-52-100.ap.ngrok.io",
+        "target": "http://118.68.172.92:8000",
         "changeOrigin": true,
         "secure": true,
         "logLevel": "debug",
